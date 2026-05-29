@@ -8,14 +8,14 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.actuate.autoconfigure.health.HealthEndpointAutoConfiguration;
-import org.springframework.boot.actuate.health.HealthContributorRegistry;
-import org.springframework.boot.actuate.health.HealthIndicator;
-import org.springframework.boot.actuate.health.NamedContributor;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.health.autoconfigure.actuate.endpoint.HealthEndpointAutoConfiguration;
+import org.springframework.boot.health.contributor.HealthContributors;
+import org.springframework.boot.health.contributor.HealthIndicator;
+import org.springframework.boot.health.registry.HealthContributorRegistry;
 import org.springframework.core.annotation.AnnotationUtils;
 
 import java.util.ArrayList;
@@ -41,9 +41,9 @@ public class AsyncHealthIndicatorAutoConfiguration implements InitializingBean, 
     @Override
     public void afterPropertiesSet() throws Exception {
         final List<AsyncHealthIndicator> asyncHealthIndicators = new ArrayList<>();
-        for (NamedContributor<?> namedContributor : healthContributorRegistry) {
-            final String contributorName = namedContributor.getName();
-            final Object indicatorAsObject = namedContributor.getContributor();
+        for (HealthContributors.Entry namedContributor : healthContributorRegistry) {
+            final String contributorName = namedContributor.name();
+            final Object indicatorAsObject = namedContributor.contributor();
             final AsyncHealth annotation = AnnotationUtils.findAnnotation(indicatorAsObject.getClass(), AsyncHealth.class);
             if (annotation != null) {
                 if (indicatorAsObject instanceof HealthIndicator) {

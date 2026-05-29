@@ -6,7 +6,7 @@ import org.assertj.core.matcher.AssertionMatcher;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.springframework.boot.test.mock.mockito.SpyBean;
+import org.springframework.boot.test.context.bean.override.mockito.MockitoSpyBean;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 public class LastDurationITest extends BaseITest {
 
-    @SpyBean
+    @MockitoSpyBean
     private UpIndicator1 upIndicator1;
 
     @Test

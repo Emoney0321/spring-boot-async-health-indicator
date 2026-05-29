@@ -1,7 +1,13 @@
 
 # Spring Boot Async Health Indicator
 
-Async Health Indicator for [spring-boot-actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html) >=2.2 and >=3.0 gives [Health Indicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/HealthIndicator.html) the ability to get refreshed asynchronously on a background ThreadPoolExecutor using the annotation `@AsyncHealth`.
+Async Health Indicator for [spring-boot-actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html) gives [Health Indicator](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/health/HealthIndicator.html) the ability to get refreshed asynchronously on a background ThreadPoolExecutor using the annotation `@AsyncHealth`.
+
+Supported major versions:
+
+- Spring Boot 2.x
+- Spring Boot 3.x
+- Spring Boot 4.x
 
 ##### When annotating a `HealthIndicator` with `@AsyncHealth`:
 

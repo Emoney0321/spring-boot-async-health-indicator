@@ -35,7 +35,7 @@ public class CompositeIndicator implements CompositeHealthContributor {
 
     @Override
     public Stream<Entry> stream() {
-        return Stream.of(new HealthContributors.Entry("name", healthContributor));
+        return Stream.of(new HealthContributors.Entry("name", healthIndicator));
     }
 
 }

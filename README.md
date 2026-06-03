@@ -53,6 +53,15 @@ For spring boot 3:
   <version>boot3-v1.4</version>
 </dependency>
 ```
+For spring boot 4:
+
+```
+<dependency>
+  <groupId>com.teketik</groupId>
+  <artifactId>async-health-indicator</artifactId>
+  <version>boot4-v1.0</version>
+</dependency>
+```
 
   - Annotate any `HealthIndicator` with `@AsyncHealth(refreshRate = $REFRESH_RATE, timeout = $TIMEOUT, interruptOnTimeout = $INTERRUPT_ON_TIMEOUT)` 
 
